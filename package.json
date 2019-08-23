@@ -12,7 +12,7 @@
   "author": "zao",
     "repository": {
     "type": "git",
-    "url": "git+https://github.com/xyxiao001/vue-cropper.git"
+    "url": "https://github.com/lyandzao/vue-previewer"
   },
   "private": true,
   "scripts": {
