@@ -1,0 +1,108 @@
+#ImgPreview {
+  position: fixed;
+  z-index: 2015;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgb(0, 0, 0, 0.65);
+
+  .titleBar {
+    z-index: 2016;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 41px;
+    background: rgb(0, 0, 0, 0.65);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    .imgName {
+      font-size: 12px;
+      font-family: Helvetica, Tahoma, Arial, Microsoft YaHei,
+        \\5fae\8f6f\96c5\9ed1, PingFang SC, \\82f9\65b9, sans-serif;
+      font-variant: tabular-nums;
+      font-feature-settings: 'tnum';
+      line-height: 1.5;
+      margin: 0 auto;
+      padding-left: 56px;
+    }
+
+    .closeBtn {
+      cursor: pointer;
+      margin-right: 40px;
+
+      :hover {
+        color: #8a8a8a;
+      }
+    }
+  }
+  .pre {
+    position: absolute;
+    left: 20px;
+    top: calc(50% - 16px);
+    cursor: pointer;
+    z-index: 2019;
+  }
+  .next {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 16px);
+    margin-right: 20px;
+    cursor: pointer;
+    z-index: 2019;
+  }
+  #imgPreview {
+    width: 100%;
+    height: 100%;
+
+    .loading {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg path,
+      svg rect {
+        fill: grey;
+      }
+    }
+
+    .imgContainer {
+      position: absolute;
+      // border: 1px solid red;
+      img {
+        position: absolute;
+      }
+    }
+  }
+
+  .toolBar {
+    z-index: 2016;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+
+    .btnGroup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      background: rgb(0, 0, 0, 0.65);
+      height: 50px;
+      margin: 0 auto;
+      border-radius: 7px 7px 0 0;
+
+      div {
+        cursor: pointer;
+        margin: 0 10px 0 10px;
+      }
+    }
+  }
+}
