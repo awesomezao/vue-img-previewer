@@ -1,6 +1,6 @@
 {
   "name": "vue-img-previewer",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "图片查看组件，typescript，vue",
   "keywords": [
     "vue",
@@ -10,6 +10,7 @@
     "vue-component",
     "vue-previewer-component"
   ],
+  "main": "dist/index.umd.min.js  ",
   "author": "qazlxxlxx",
   "license": "ISC",
   "repository": {
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name index --dest dist src/components/ImgPreview/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
