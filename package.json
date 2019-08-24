@@ -1,20 +1,21 @@
 {
-  "name": "vue-previewer",
-  "version": "0.1.0",
+  "name": "vue-img-previewer",
+  "version": "0.1.2",
   "description": "图片查看组件，typescript，vue",
-    "keywords": [
+  "keywords": [
     "vue",
     "previewer",
+    "vue-img-previewer",
     "vue-previewer",
     "vue-component",
     "vue-previewer-component"
   ],
-  "author": "zao",
-    "repository": {
+  "author": "qazlxxlxx",
+  "license": "ISC",
+  "repository": {
     "type": "git",
     "url": "https://github.com/lyandzao/vue-previewer"
   },
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "unauthorized": "^0.1.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
