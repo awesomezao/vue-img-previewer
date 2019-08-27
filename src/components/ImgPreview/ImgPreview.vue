@@ -301,7 +301,7 @@ export default class ImgPreview extends Vue {
     var x = e.clientX
     var y = e.clientY
     e.preventDefault();
-    if (e.target && this.error===false && e.target === this.imgElement) {
+    if (e.target && this.error === false && e.target === this.imgElement) {
       var l = this.getOffset(this.imgContainer)
       x = x - l.left
       y = y - l.top
@@ -398,12 +398,14 @@ export default class ImgPreview extends Vue {
     } else {
       this.cleanData();
       this.changeLoading(true);
+      setTimeout(() => {
+        this.imgDataListLength = this.imgData.length;
+        this.imgI -= 1;
+        const imgDataNext: any[] = this.preloadImgData;
+        const indexNext: number = this.imgI;
+        this.init(indexNext - 1);
+      }, 0);
 
-      this.imgDataListLength = this.imgData.length;
-      this.imgI -= 1;
-      const imgDataNext: any[] = this.preloadImgData;
-      const indexNext: number = this.imgI;
-      this.init(indexNext - 1);
     }
   }
 
@@ -416,12 +418,14 @@ export default class ImgPreview extends Vue {
     } else {
       this.cleanData();
       this.changeLoading(true);
+      setTimeout(() => {
+        this.imgDataListLength = this.imgData.length;
+        this.imgI += 1;
+        const imgDataNext: any[] = this.preloadImgData;
+        const indexNext: number = this.imgI;
+        this.init(indexNext + 1);
+      }, 0);
 
-      this.imgDataListLength = this.imgData.length;
-      this.imgI += 1;
-      const imgDataNext: any[] = this.preloadImgData;
-      const indexNext: number = this.imgI;
-      this.init(indexNext + 1);
     }
 
   }
@@ -485,13 +489,13 @@ export default class ImgPreview extends Vue {
 
   // 下载图片
   public download() {
-    this.getBase64(this.imgI).then((s:any)=>{
-      let aLink=document.createElement('a');
-      aLink.download=s.name;
-      aLink.href=s.base64;
+    this.getBase64(this.imgI).then((s: any) => {
+      let aLink = document.createElement('a');
+      aLink.download = s.name;
+      aLink.href = s.base64;
       aLink.click();
-    }).catch((f:any)=>{
-       console.log(`下载失败`)
+    }).catch((f: any) => {
+      console.log(`下载失败`)
     })
   }
 
@@ -578,8 +582,8 @@ export default class ImgPreview extends Vue {
   public getBase64(index: number) {
     let img: any = new Image();
     let base64!: string;
-    let name!:string;
-    let base64Arry:any={};
+    let name!: string;
+    let base64Arry: any = {};
     let canvas: any = document.createElement('canvas');
     const ctx: any = canvas.getContext('2d');
     img.src = this.preloadImgData[index].url;
@@ -591,10 +595,10 @@ export default class ImgPreview extends Vue {
           canvas.height = img.height;
           ctx.drawImage(img, 0, 0);
           base64 = canvas.toDataURL('image/jpeg');
-          name=this.preloadImgData[index].title;
-          base64Arry={
-            base64:base64,
-            name:name,
+          name = this.preloadImgData[index].title;
+          base64Arry = {
+            base64: base64,
+            name: name,
           }
           resolve(base64Arry)
         };
@@ -610,27 +614,27 @@ export default class ImgPreview extends Vue {
   //得到图片blob
   public getBlob(index: number) {
     let base64!: string;
-     this.getBase64(this.imgI).then((s:any)=>{
-      base64=s.base64;
+    this.getBase64(this.imgI).then((s: any) => {
+      base64 = s.base64;
       this.dataURLtoBlob(base64);
-    }).catch((f:any)=>{
-      base64=f
+    }).catch((f: any) => {
+      base64 = f
     });
   }
 
   // base64转blob
   public dataURLtoBlob(dataurl: string) {
-      const arr: any = dataurl.split(',');
-      const mime: any = arr[0].match(/:(.*?);/)[1];
-      const bstr: any = atob(arr[1]);
-      let n: number = bstr.length;
-      const u8arr: any = new Uint8Array(n);
-      while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
-      }
-      return new Blob([u8arr], {
-        type: mime,
-      });
+    const arr: any = dataurl.split(',');
+    const mime: any = arr[0].match(/:(.*?);/)[1];
+    const bstr: any = atob(arr[1]);
+    let n: number = bstr.length;
+    const u8arr: any = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {
+      type: mime,
+    });
   }
 
 }

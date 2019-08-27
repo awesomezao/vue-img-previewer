@@ -11,7 +11,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export { ImgPreview }
 
 export default {
-  version: '0.2.1',
+  version: '0.2.3',
   install,
   ImgPreview,
   ImgPreview: ImgPreview
