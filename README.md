@@ -3,8 +3,18 @@
 
 ![图片预览组件](README_IMG/show.png)
 
-## 参照使用方式
+
+## 使用方式
+
+1. 安装
+```shell
+yarn add vue-img-previewer
 ```
+```shell
+npm i vue-img-previewer --save
+```
+2. 然后在要使用的组件里按照下面的类似格式书写
+```javascript
 <template>
   <div class="hello">
     <li v-for="(item,index) in imgDataList"
@@ -22,7 +32,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import ImgPreview from './ImgPreview/ImgPreview.vue';
+import {ImgPreview} from 'vue-img-previewer';
 
 @Component({
   components: {
@@ -49,10 +59,18 @@ export default class HelloWorld extends Vue {
 }
 </script>
 ```
-
+`上面为了简单测试，直接用了require，这里可以是从后端拿到的base64数据`
 ```
 图片数据的格式需为
 { title: 'xxx', url: 'xxxxxx.xxx', id: x }
+```
+
+3. 运行
+```shell
+yarn serve
+```
+```shell
+npm run serve
 ```
 ## 参数
 
@@ -64,4 +82,12 @@ export default class HelloWorld extends Vue {
 
 ## 组件简单，注释详细，易于第二次开发
 
-### v0.1
+### v0.2.0
+```
+修复图片重定位bug
+```
+
+### v0.1.0
+```
+初步完善功能，发布到npm
+```

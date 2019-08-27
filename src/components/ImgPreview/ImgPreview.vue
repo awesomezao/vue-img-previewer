@@ -181,9 +181,6 @@ export default class ImgPreview extends Vue {
           if (typeof (arr[key]) === 'number') {
             this.changeData(key, 'number', this)
           };
-          if (typeof (arr[key]) === 'boolean') {
-            this.changeData(key, 'boolean', this)
-          };
         }
       }
     }
@@ -196,9 +193,6 @@ export default class ImgPreview extends Vue {
     }
     if (type === 'number') {
       that[key] = 0;
-    }
-    if (type === 'boolean') {
-      that[key] = false;
     }
     if (type === 'imgName') {
       that[key] = 'loading error';
@@ -307,8 +301,7 @@ export default class ImgPreview extends Vue {
     var x = e.clientX
     var y = e.clientY
     e.preventDefault();
-
-    if (e.target && !this.error && e.target === this.imgElement) {
+    if (e.target && this.error===false && e.target === this.imgElement) {
       var l = this.getOffset(this.imgContainer)
       x = x - l.left
       y = y - l.top
@@ -348,7 +341,7 @@ export default class ImgPreview extends Vue {
 
   // 旋转图片
   public rotateImg() {
-    console.log('旋转');
+    // console.log('旋转');
     if (this.error === false) {
       this.rotateDeg = this.rotateDeg >= 360 ? 90 : this.rotateDeg + 90;
       this.imgStyle.transform = 'rotate(' + this.rotateDeg + 'deg)';
@@ -400,6 +393,7 @@ export default class ImgPreview extends Vue {
   //  上一张图
   public prevImg() {
     if (this.imgI === 0) {
+      this.reset();
       return;
     } else {
       this.cleanData();
@@ -417,6 +411,7 @@ export default class ImgPreview extends Vue {
   public nextImg() {
     let imgDataLength: number = this.imgData.length;
     if (this.imgI === imgDataLength - 1) {
+      this.reset();
       return;
     } else {
       this.cleanData();
