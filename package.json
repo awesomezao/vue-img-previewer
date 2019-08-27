@@ -1,6 +1,6 @@
 {
   "name": "vue-img-previewer",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "图片查看组件，typescript，vue",
   "keywords": [
     "vue",
@@ -16,7 +16,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lyandzao/vue-previewer"
+    "url": "https://github.com/lyandzao/vue-img-previewer"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
