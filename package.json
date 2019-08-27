@@ -1,6 +1,6 @@
 {
   "name": "vue-img-previewer",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "图片查看组件，typescript，vue",
   "keywords": [
     "vue",
@@ -10,7 +10,7 @@
     "vue-component",
     "vue-previewer-component"
   ],
-  "main": "dist/index.umd.min.js  ",
+  "main": "index.js",
   "author": "qazlxxlxx",
   "license": "ISC",
   "repository": {
