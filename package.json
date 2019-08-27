@@ -1,6 +1,6 @@
 {
   "name": "vue-img-previewer",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "图片查看组件，typescript，vue",
   "keywords": [
     "vue",
