@@ -1,6 +1,6 @@
 {
   "name": "vue-img-previewer",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "图片查看组件，typescript，vue",
   "keywords": [
     "vue",
@@ -8,7 +8,8 @@
     "vue-img-previewer",
     "vue-previewer",
     "vue-component",
-    "vue-previewer-component"
+    "vue-previewer-component",
+    "img-previewer"
   ],
   "main": "index.js",
   "author": "qazlxxlxx",
@@ -27,9 +28,7 @@
     "unauthorized": "^0.1.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.1.0",
-    "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vue-property-decorator": "^8.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
