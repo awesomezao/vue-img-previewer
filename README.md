@@ -2,7 +2,7 @@
 ## 网页端图片预览组件，使用了vue和ts，scss
 
 ![图片预览组件](README_IMG/show.png)
-
+[bilibili操作及演示](https://www.bilibili.com/video/av65586705?from=search&seid=5404302964800653020)
 
 ## 使用方式
 
